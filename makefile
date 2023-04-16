@@ -3,22 +3,19 @@ CFLAGS = -Wall
 SRC = tail.c stat.c search.c listfile.c
 OBJ = $(SRC:.c=.o)
 
-all: mylist mysearch mystat mytail
+all: myls mysearch mystat mytail
 
-mylist: listfile.o
-	$(CC) -o $@ $< $(CFLAGS)
+myls: listfile.c
+	gcc -o myls listfile.c
 
-mysearch: search.o
-	$(CC) -o $@ $< $(CFLAGS)
+mysearch: search.c
+	gcc -o mysearch search.c
 
-mystat: stat.o
-	$(CC) -o $@ $< $(CFLAGS)
+mystat: stat.c
+	gcc -o mystat stat.c -std=c99
 
-mytail: tail.o
-	$(CC) -o $@ $< $(CFLAGS)
-
-%.o: %.c
-	$(CC) -c -o $@ $< $(CFLAGS)
+mytail: tail.c
+	gcc -o mytail tail.c -std=c99
 
 clean:
 	rm -f $(OBJ) mylist mysearch mystat mytail
