@@ -1,8 +1,3 @@
-CC = gcc
-CFLAGS = -Wall
-SRC = tail.c stat.c search.c listfile.c
-OBJ = $(SRC:.c=.o)
-
 all: myls mysearch mystat mytail
 
 myls: listfile.c
