@@ -93,7 +93,7 @@ int main(int argc, char* argv[]) {
 
     printf("Current directory: %s\n", cwd);
     print_directory(dirname, long_format);
-    printf("Search has finished.");
+    printf("Search has finished.\n");
 
     return 0;
 }
