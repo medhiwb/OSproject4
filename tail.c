@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
         if (buf[i] == '\n') {
             num_lines++;
             if (num_lines == n) {
+                printf("These are the last %d lines of %s:\n", n, argv[2]);
                 printf("%.*s", (int) (num_bytes - i - 1), buf + i + 1);
                 break;
             }
@@ -76,81 +77,3 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-
-
-// int main(int argc, char* argv[]) {
-//     if (argc != 3) {
-//         fprintf(stderr, "Usage: %s -n <num_lines> <filename>\n", argv[0]);
-//         exit(EXIT_FAILURE);
-//     }
-
-//     int n = atoi(argv[1] + 1); // Skip the '-' character
-//     if (n <= 0) {
-//         fprintf(stderr, "Invalid number of lines: %d\n", n);
-//         exit(EXIT_FAILURE);
-//     }
-
-//     const char* filename = argv[2];
-
-//     int fd = open(filename, O_RDONLY);
-//     if (fd == -1) {
-//         perror("open");
-//         exit(EXIT_FAILURE);
-//     }
-
-//     off_t file_size = lseek(fd, 0, SEEK_END);
-//     off_t block_start = BLOCK_SIZE;
-
-//     if (block_start > file_size) {
-//         block_start = file_size;
-//     }
-
-//     char block[BLOCK_SIZE + 1];
-//     off_t block_end = file_size;
-
-//     while (block_end > 0) {
-//         off_t block_read_size = BLOCK_SIZE;
-//         if (block_end < block_start) {
-//             block_read_size = block_end;
-//         }
-
-//         block_end = block_start;
-//         block_start -= block_read_size;
-
-//         if (lseek(fd, block_start, SEEK_SET) == -1) {
-//             perror("lseek");
-//             exit(EXIT_FAILURE);
-//         }
-
-//         ssize_t num_read = read(fd, block, block_read_size);
-//         if (num_read == -1) {
-//             perror("read");
-//             exit(EXIT_FAILURE);
-//         }
-
-//         block[num_read] = '\0';
-
-//         // Count number of lines in block
-//         int line_count = 0;
-//         for (int i = num_read - 1; i >= 0; i--) {
-//             if (block[i] == '\n') {
-//                 line_count++;
-//                 if (line_count >= n) {
-//                     // Print remaining lines in block
-//                     printf("%s", block + i + 1);
-//                     break;
-//                 }
-//             }
-//         }
-
-//         if (line_count < n && block_start == 0) {
-//             // Print the remaining lines in the file
-//             printf("%s", block);
-//         }
-//         printf("\n");
-//     }
-
-//     close(fd);
-
-//     return 0;
-// }
