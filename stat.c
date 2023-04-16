@@ -14,14 +14,9 @@ int main(int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // file size
-    printf("Size: %ld bytes\n", filestat.st_size);
-
-    // blocks allocated
-    printf("Blocks: %ld\n", filestat.st_blocks);
-
-    // link count
-    printf("Links: %ld\n", filestat.st_nlink);
+    printf("Size: %ld bytes\n", filestat.st_size); // file size
+    printf("Blocks: %ld\n", filestat.st_blocks); // blocks allocated
+    printf("Links: %ld\n", filestat.st_nlink); // link count
 
     // file permissions
     printf("Permissions: ");

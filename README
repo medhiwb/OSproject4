@@ -1,2 +1,4 @@
 Enter "make" to compile the files and then enter "./[mylist/mysearch/etc...]" once compiled.
 Enter "make clean" to remove files.
+
+Also for tail.c, you have to input a dash before the 'n' so the input should look like "./mytail -n <filename>".
