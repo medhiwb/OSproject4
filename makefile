@@ -13,4 +13,4 @@ mytail: tail.c
 	gcc -o mytail tail.c -std=c99
 
 clean:
-	rm -f $(OBJ) mylist mysearch mystat mytail
+	rm -f $(OBJ) myls mysearch mystat mytail
