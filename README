@@ -1,0 +1,2 @@
+Enter "make" to compile the files and then enter "./[mylist/mysearch/etc...]" once compiled.
+Enter "make clean" to remove files.
